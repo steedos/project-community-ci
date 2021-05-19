@@ -12,7 +12,6 @@ storage
 **/lerna-debug.log
 
 **/.vscode/launch.*
-!packages/project-template-empty/.vscode/launch.*
 settings.yml
 
 logs
