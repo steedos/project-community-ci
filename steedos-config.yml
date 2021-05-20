@@ -7,6 +7,11 @@ datasources:
 public:
   cfs:
     store: ${STEEDOS_CFS_STORE}
+    aliyun:
+      region: ${STEEDOS_CFS_ALIYUN_REGION}
+      bucket: ${STEEDOS_CFS_ALIYUN_BUCKET}
+      accessKeyId: ${STEEDOS_CFS_ALIYUN_ACCESSKEYID}
+      secretAccessKey: ${STEEDOS_CFS_ALIYUN_SECRETACCESSKEY}
 tenant:
   _id: ${STEEDOS_TENANT_ID}
   name: 华炎魔方
