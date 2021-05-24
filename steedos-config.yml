@@ -5,6 +5,8 @@ datasources:
     objectFiles:
       - "./steedos-app/**"
 public:
+  cfs:
+    store: ${STEEDOS_CFS_STORE}
 cfs:
   store: ${STEEDOS_CFS_STORE}
   aliyun:
