@@ -7,13 +7,9 @@ datasources:
 public:
   cfs:
     store: ${STEEDOS_CFS_STORE}
-cfs:
-  store: ${STEEDOS_CFS_STORE}
-  aliyun:
-    region: ${STEEDOS_CFS_ALIYUN_REGION}
-    bucket: ${STEEDOS_CFS_ALIYUN_BUCKET}
-    accessKeyId: ${STEEDOS_CFS_ALIYUN_ACCESSKEYID}
-    secretAccessKey: ${STEEDOS_CFS_ALIYUN_SECRETACCESSKEY}
+  password:
+    policy: ^[A-Za-z0-9]{8,}$
+    policyError: 密码不能少于8位
 tenant:
   _id: ${STEEDOS_TENANT_ID}
   name: 华炎魔方
