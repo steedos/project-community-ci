@@ -1,6 +1,7 @@
 "use strict";
 const winstokPackage = require("winston");
 const LokiTransport = require("winston-loki");
+const os = require("os");
 
 require('dotenv-flow').config(process.cwd());
 
