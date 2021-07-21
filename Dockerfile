@@ -10,8 +10,8 @@ ADD moleculer.config.js .
 ADD package.json .
 ADD steedos-config.yml .
 
-RUN npm config set registry http://registry.npm.taobao.org/
-RUN yarn config set registry http://registry.npm.taobao.org/
+# RUN npm config set registry http://registry.npm.taobao.org/
+# RUN yarn config set registry http://registry.npm.taobao.org/
 
 RUN yarn install --production
 
