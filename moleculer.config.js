@@ -85,7 +85,12 @@ module.exports = {
 				transports: [
 					new LokiTransport({ 
 						host: process.env.LOKI_URL,
-						labels: { project: 'steedos-project-community', host: os.hostname(), category: "moleculer-transports" }
+						labels: { 
+							project: 'steedos-project-community', 
+							host: os.hostname(),
+							category: "moleculer-transports",
+							oid: process.env.APP_TAG_OF_OID,
+						}
 					}),
 					// new winstokPackage.transports.Console(),
 					// new winstokPackage.transports.File({ filename: 'combined.log' })
