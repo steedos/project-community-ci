@@ -1,0 +1,31 @@
+FROM node:12.16.3
+
+WORKDIR /home
+
+# 把所需文件都拷贝入 /home
+ADD home_file/coder /home/coder
+
+# 设置共同源
+# hub.docker.com 构件时使用 taobao 可能减慢构件速度
+RUN npm config set registry http://registry.npm.taobao.org/
+RUN yarn config set registry http://registry.npm.taobao.org/
+RUN npm config set prefix "/home/coder/.npm/npm_global"
+RUN npm config set cache "/home/coder/.npm/npm_cache"
+
+# 安装包
+RUN cd /home/coder/template_app_code && yarn
+
+# 安装 code-server
+RUN yarn config set global-folder  "/home/coder/.yarn/yarn_global"
+RUN yarn config set prefix         "/home/coder/.yarn/yarn_prefix"
+RUN yarn config set cache-folder   "/home/coder/.yarn/yarn_cache"
+RUN yarn global add code-server@3.10.2
+
+# 生产压缩包：把整个 /home 文件夹压缩
+RUN mkdir /app_archived
+RUN tar -czvf /app_archived/home_files.tar.gz /home
+
+# 加入init脚本
+ADD init_script /app_archived/init_script/
+
+CMD ["/bin/sh","-c","sleep 999999"]
