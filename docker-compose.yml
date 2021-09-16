@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  steedos:
+    image: steedos/steedos-saas-coder-server-03:1.0.2
+    restart: always
+    command:
+      - /bin/bash 
+      - -c 
+      - |
+        cd /app 
+        yarn start
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./storage:/app/storage"
+      - "./.env.local:/app/.env.local"

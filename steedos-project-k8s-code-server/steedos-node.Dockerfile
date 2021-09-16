@@ -1,5 +1,4 @@
-FROM steedos/project-community-ci:2.0.51.0
-
+FROM steedos/steedos-project-template:2.1.14
 USER root
 WORKDIR /
 
@@ -17,11 +16,11 @@ RUN yarn config set cache-folder   "/root/.yarn/yarn_cache"
 RUN yarn global add code-server@3.10.2
 
 # 把所需文件都拷贝入 /root/
-ADD home_file /root/
+# ADD home_file /root/
 # RUN cd ~/ && ls -la >abc
 # RUN cd ~/ && cat abc
 # 安装包
-RUN cd /root/app_code && yarn
+# RUN cd /root/app_code && yarn
 
 # 安装 steedos-cli@next
 RUN yarn global add steedos-cli@next
